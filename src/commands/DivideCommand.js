@@ -7,20 +7,16 @@ class DivideCommand extends Command {
     this.calculator = calculator;
     this.firstOperand = firstOperand;
     this.secondOperand = secondOperand;
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {
-    if (this.secondOperand == 0) {
-      this.calculator.setResult('Cannot divide by zero');
-    } else {
-      const result = divide(this.firstOperand, this.secondOperand);
-      this.calculator.setResult(result);
-    }
+    const result = divide(this.firstOperand, this.secondOperand);
+    this.calculator.setResult(result);
   }
 
   undo() {
-    const result = multiply(this.calculator.getResult(), this.secondOperand);
-    this.calculator.setResult(result);
+    this.calculator.setResult(this.previousValue);
   }
 }
 

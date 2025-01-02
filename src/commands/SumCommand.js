@@ -1,5 +1,5 @@
 import Command from "../command";
-import { subtract, summarize } from "../operations";
+import { summarize } from "../operations";
 
 class SumCommand extends Command {
   constructor(calculator, firstOperand, secondOperand) {
@@ -7,6 +7,7 @@ class SumCommand extends Command {
     this.calculator = calculator;
     this.firstOperand = firstOperand;
     this.secondOperand = secondOperand;
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {
@@ -15,8 +16,7 @@ class SumCommand extends Command {
   }
 
   undo() {
-    const result = subtract(this.calculator.getResult(), this.secondOperand);
-    this.calculator.setResult(result);
+    this.calculator.setResult(this.previousValue);
   }
 }
 

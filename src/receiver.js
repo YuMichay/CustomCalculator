@@ -3,11 +3,12 @@ class Calculator {
     this.display = display;
     this.result = 0;
     this.memory = 0;
+    this.results = [];
   }
 
   setResult(value) {
-    console.log(value)
     this.result = value;
+    this.results.push(value);
     this.updateDisplay(this.result);
   }
 
@@ -17,6 +18,7 @@ class Calculator {
 
   reset() {
     this.result = 0;
+    this.results = [];
     this.updateDisplay(this.result);
   }
 

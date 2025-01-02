@@ -35,8 +35,9 @@ body {
 }
 
 .wrapper {
-    width: 99.8%;
-    height: 99.6%;
+    width: 98.9%;
+    height: 99%;
+    margin: 0 auto;
     border: 1px solid #bdbcbc;
     border-radius: 20px;
     font-size: 38px;
@@ -117,8 +118,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 99%;
-    height: 99%;
+    width: 99.5%;
+    height: 98.5%;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -133,7 +134,7 @@ body {
     font-size: 0.61em;
 }
 
-.digit-double {
+.digit-double, .key-double {
     width: 99.5%;
     height: 99%;
     display: flex;
@@ -152,11 +153,11 @@ body {
     height: 99%;
 }
 
-.total {
+[data-operation="total"] {
     border-bottom-right-radius: 20px;
 }
 
-.factorial {
+.key-double {
     border-bottom-left-radius: 20px;
 }
 
@@ -165,20 +166,17 @@ body {
     font-size: 0.61em;
 }
 
-.extra .radicand {
-    border-top: 1px solid var(--text-dark);
-    display: inline-block;
-}
-
 .key:hover,
 .digit:hover,
 .dot:hover,
-.digit-double:hover {
+.digit-double:hover,
+.key-double:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .key:active,
 .digit-double:active,
+.key-double:active,
 .digit:active,
 .dot:active {
     box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
@@ -248,9 +246,23 @@ body.dark-mode .wrapper__number {
 body.dark-mode .key,
 body.dark-mode .digit,
 body.dark-mode .digit-double,
+body.dark-mode .key-double,
 body.dark-mode .dot {
     border-right: 1px solid var(--display-dark);
     border-bottom: 1px solid var(--display-dark);
+}
+
+body.dark-mode [data-operation="multiply"],
+body.dark-mode [data-operation="summarize"],
+body.dark-mode [data-operation="sign"],
+body.dark-mode [data-operation="total"],
+body.dark-mode [data-operation="undo"] {
+    border-right: none;
+}
+
+body.dark-mode .extra .radicand {
+    border-top: 1px solid var(--text-dark);
+    display: inline-block;
 }
 
 /* light mode */
@@ -285,6 +297,19 @@ body.light-mode .digit-double,
 body.light-mode .dot {
     border-right: 1px solid var(--display-light);
     border-bottom: 1px solid var(--display-light);
+}
+
+body.light-mode [data-operation="multiply"],
+body.light-mode [data-operation="summarize"],
+body.light-mode [data-operation="sign"],
+body.light-mode [data-operation="total"],
+body.light-mode [data-operation="undo"] {
+    border-right: none;
+}
+
+body.light-mode .extra .radicand {
+    border-top: 1px solid var(--text-light);
+    display: inline-block;
 }
 
 @media (max-width: 600px) {

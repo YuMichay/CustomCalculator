@@ -1,12 +1,12 @@
 import Command from "../command";
-import { cube, cubeRoot } from "../operations";
+import { cube } from "../operations";
 
 class CubeCommand extends Command {
   constructor(calculator, value) {
     super();
     this.calculator = calculator;
     this.value = value;
-    this.previousValue = this.calculator.getResult();
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {

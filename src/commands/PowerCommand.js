@@ -7,7 +7,7 @@ class PowerCommand extends Command {
     this.calculator = calculator;
     this.firstOperand = firstOperand;
     this.secondOperand = secondOperand;
-    this.previousValue = this.calculator.getResult();
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {

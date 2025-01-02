@@ -7,6 +7,7 @@ class SubCommand extends Command {
     this.calculator = calculator;
     this.firstOperand = firstOperand;
     this.secondOperand = secondOperand;
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {
@@ -15,8 +16,7 @@ class SubCommand extends Command {
   }
 
   undo() {
-    const result = summarize(this.calculator.getResult(), this.secondOperand);
-    this.calculator.setResult(result);
+    this.calculator.setResult(this.previousValue);
   }
 }
 

@@ -6,6 +6,7 @@ class SignCommand extends Command {
     super();
     this.calculator = calculator;
     this.value = value;
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {
@@ -14,8 +15,7 @@ class SignCommand extends Command {
   }
 
   undo() {
-    const result = sign(this.calculator.getReesult());
-    this.calculator.setResult(result);
+    this.calculator.setResult(this.previousValue);
   }
 }
 

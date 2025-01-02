@@ -6,7 +6,7 @@ class SquareCommand extends Command {
     super();
     this.calculator = calculator;
     this.value = value;
-    this.previousValue = this.calculator.getResult();
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {

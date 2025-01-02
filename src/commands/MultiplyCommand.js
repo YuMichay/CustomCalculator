@@ -7,6 +7,7 @@ class MultiplyCommand extends Command {
     this.calculator = calculator;
     this.firstOperand = firstOperand;
     this.secondOperand = secondOperand;
+    this.previousValue = this.calculator.results.pop();
   }
 
   execute() {
@@ -15,8 +16,7 @@ class MultiplyCommand extends Command {
   }
 
   undo() {
-    const result = divide(this.calculator.getResult(), this.secondOperand);
-    this.calculator.setResult(result);
+    this.calculator.setResult(this.previousValue);
   }
 }
 
